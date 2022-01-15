@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;900&display=swap');
+
+:root{
+    --background-color:#FFF;
+    --input-color: #e4e4e4;
+    --input-text-color: #7D7D7D;
+    --active-link-color: #A6A6A6;
+    --primary-color: #292929;
+    --progress-bar-green-color: #219653;
+    --progress-bar-yellow-color: #E3CE5D;
+    --progress-bar-red-color: #E3655D;
+}
+
+html,
+body{
+    height: 100%;
+}
+
+body{
+    overflow-x:hidden;
+    background-color: var(--background-color);
+    font-family: 'Montserrat', sans-serif;
+    color: var(--primary-color);
+}
+
+body.lock{
+    overflow-y: hidden;
+}
+
+html{
+    box-sizing: border-box;
+}
+
+section{
+    overflow: hidden;
+    position: relative;
+}
+
+*,
+*::before,
+*::after{
+    box-sizing: border-box;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+ul[class],
+ol[class]{
+    padding: 0;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd{
+    margin: 0;
+    font-size: inherit;
+
+}
+
+ul,li[class]{
+    list-style: none;
+}
+
+img{
+    max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select{
+    font: inherit;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+.container{
+    margin: 0 auto;
+    padding: 0 25px;
+    max-width: 1450px;
+}
+
+.title{
+    font-size: 36px;
+    font-weight: 900;
+    margin-bottom: 30px;
+    color:var(--primary-color);
+    line-height: 50px;
+}
+
+.mini-title{
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 10px;
+    line-height: 30px;
+    color:var(--primary-color);
+}
+
+.link{
+    font-size: 14px;
+    font-weight: 900;
+    color:var(--primary-color);
+    line-height: 20px;
+}
+
+.link.active{
+    color:var(--active-link-color);
+}
+
+.note{
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 20px;
+    color:var(--primary-color);
+}
+
+input[type="text"]{
+    border: none;
+    padding: 13px;
+    border-radius: 15px;
+    font-size: 14px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+input{
+    background-color: var(--input-color);
+}
+
+input::placeholder{
+    color: var(--input-text-color);
+}
+
+button{
+    background-color: var(--primary-color);
+    border: none;
+    color:var(--background-color);
+    padding: 13px 10px;
+    font-size: 16px;
+    font-weight:bold;
+    cursor: pointer;
+    border-radius: 15px;
+}
+
+.inner{
+    padding: 60px 0;
+}
+
+.mini-inner{
+    padding: 30px;
+}
