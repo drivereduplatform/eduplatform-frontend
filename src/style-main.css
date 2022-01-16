@@ -27,6 +27,7 @@ aside{
     align-items: center;
     justify-content: space-between;
     padding: 10px;
+    cursor: default;
 }
 
 .aside-step-circle{
@@ -45,6 +46,10 @@ aside{
     border:var(--primary-color);
     background-color: var(--primary-color);
     color: var(--background-color);
+}
+
+.aside-logo h1 {
+    cursor: pointer;
 }
 
 main{

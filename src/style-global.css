@@ -130,7 +130,8 @@ a{
     color:var(--primary-color);
 }
 
-input[type="text"]{
+input[type="text"],
+input[type="password"]{
     border: none;
     padding: 13px;
     border-radius: 15px;
