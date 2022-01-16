@@ -1,8 +1,8 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import './style-global.css'
-import './style-main.css'
 import Login from './screens/Login';
 import Register from './screens/Register';
+import './style-global.css'
+import './style-main.css'
 
 function App() {
   return (

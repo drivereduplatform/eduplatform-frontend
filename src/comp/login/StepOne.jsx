@@ -1,10 +1,9 @@
-import { Link } from "react-router-dom";
-import { useState } from "react";
+import { Link } from 'react-router-dom'
+import { useState } from 'react'
 import axios from 'axios'
 import api from '../../configs/api'
 
 function StepOne({ language, setStep }) {
-
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const [checkbox, setCheckbox] = useState(false)
@@ -46,8 +45,8 @@ function StepOne({ language, setStep }) {
                         </Link>
                     </form>
                 </div>
-            </div>
-        </section>
+            </div >
+        </section >
     )
 }
 
