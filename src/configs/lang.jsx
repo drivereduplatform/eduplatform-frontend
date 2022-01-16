@@ -47,7 +47,16 @@ const lang = [
                 },
             },
             stepTwo: {
-                title: "Setup your account"
+                title: "Setup your account",
+                inputs: {
+                    fullname: "Fullname",
+                    language: "Select language",
+                    img: "Select profile image"
+                },
+                buttons: {
+                    done: "Done",
+                    skip: "Skip"
+                }
             }
         }
     },
@@ -99,7 +108,16 @@ const lang = [
                 }
             },
             stepTwo: {
-                title: "Настройте ваш аккаунт"
+                title: "Настройте ваш аккаунт",
+                inputs: {
+                    fullname: "ФИО",
+                    language: "Выберите язык",
+                    img: "Выберите аватарку"
+                },
+                buttons: {
+                    done: "Готово",
+                    skip: "Пропустить"
+                }
             }
         }
     }

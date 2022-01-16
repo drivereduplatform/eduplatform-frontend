@@ -50,10 +50,10 @@ function StepOne({ language, setStep }) {
                             <input value={email} onChange={(e) => setEmail(e.target.value)} placeholder={language.register.stepOne.inputs.email} type="text" />
                         </div>
                         <div className="register-form-input">
-                            <input value={password} onChange={(e) => setPassword(e.target.value)} placeholder={language.register.stepOne.inputs.password} type="text" />
+                            <input value={password} onChange={(e) => setPassword(e.target.value)} placeholder={language.register.stepOne.inputs.password} type="password" />
                         </div>
                         <div className="register-form-input">
-                            <input value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} placeholder={language.register.stepOne.inputs.confirmPassword} type="text" />
+                            <input value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} placeholder={language.register.stepOne.inputs.confirmPassword} type="password" />
                         </div>
                         <button onClick={(e) => registerRequest(e)} className="register-form-button">{language.register.stepOne.buttons.register}</button>
                         <Link to="/login" className="register-form-note note">

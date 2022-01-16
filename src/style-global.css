@@ -126,25 +126,37 @@ a{
 .note{
     font-size: 12px;
     font-weight: 700;
-    line-height: 20px;
+    line-height: 40px;
     color:var(--primary-color);
 }
 
 input[type="text"],
-input[type="password"]{
+input[type="password"],
+input[type="file"]{
     border: none;
     padding: 13px;
     border-radius: 15px;
     font-size: 14px;
     width: 100%;
     margin-bottom: 20px;
-}
-
-input{
     background-color: var(--input-color);
+    color: var(--input-text-color);
 }
 
-input::placeholder{
+select{
+    border: none;
+    padding: 13px;
+    border-radius: 15px;
+    font-size: 14px;
+    width: 100%;
+    margin-bottom: 20px;
+    background-color: var(--input-color);
+    color: var(--input-text-color);
+}
+
+input::placeholder,
+option,
+option:first{
     color: var(--input-text-color);
 }
 
@@ -157,6 +169,10 @@ button{
     font-weight:bold;
     cursor: pointer;
     border-radius: 15px;
+}
+
+input::file-selector-button{
+    display: none;
 }
 
 .inner{

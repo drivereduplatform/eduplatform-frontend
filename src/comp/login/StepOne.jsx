@@ -34,7 +34,7 @@ function StepOne({ language, setStep }) {
                             <input value={username} onChange={(e) => setUsername(e.target.value)} placeholder={language.login.stepOne.inputs.username} type="text" />
                         </div>
                         <div className="login-form-input">
-                            <input value={password} onChange={(e) => setPassword(e.target.value)} placeholder={language.login.stepOne.inputs.password} type="text" />
+                            <input value={password} onChange={(e) => setPassword(e.target.value)} placeholder={language.login.stepOne.inputs.password} type="password" />
                         </div>
                         <div className="login-form-checkbox note">
                             <input onChange={() => setCheckbox(!checkbox)} type="checkbox" /> <div className="login-form-checkbox-indicator"></div><p>{language.login.stepOne.buttons.rememberMe}</p>
