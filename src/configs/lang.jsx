@@ -1,6 +1,20 @@
 const lang = [
     {
         lang: 'en',
+        notification: {
+            alert: 'Alert',
+            successfulLogin: "Successful login",
+            incorrectPassword: "Incorrect password",
+            userNotFound: "User not found",
+            missingFields: "Missing fields",
+            usernameAlreadyExists: "Username already exists",
+            emailAlreadyExists: "Email already exists",
+            successfulRegister: "Registration successful",
+            successfulImgChange: "Profile picture has been changed successfully",
+            successfulFullnameChange: "Fullname has been changed successfully",
+            successfulLangChange: "Language has been changed successfully",
+            sessionNotFound: "There was an error during request"
+        },
         login: {
             steps: {
                 loginToAccount: "Login to account"
@@ -15,19 +29,10 @@ const lang = [
                     rememberMe: "Remember me",
                     login: "Login",
                     dontHaveAccount: "Do not have an account?"
-                },
-                notification: {
-                    successfulLogin: "Successful login",
-                    incorrectPassword: "Incorrect password",
-                    userNotFound: "User not found"
                 }
             }
         },
         register: {
-            steps: {
-                registerAccount: "Register",
-                setupAccount: "Set up your account"
-            },
             stepOne: {
                 title: "Register",
                 inputs: {
@@ -39,19 +44,32 @@ const lang = [
                 buttons: {
                     register: "Register",
                     alreadyHaveAccount: "Already have an account?"
-                },
-                notification: {
-                    usernameAlreadyExists: "Username already exists",
-                    emailAlreadyExists: "Email already exists",
-                    successfulRegister: "Registration successful"
-                },
+                }
             },
             stepTwo: {
-                title: "Setup your account",
+                title: "Set up your profile picture",
+                inputs: {
+                    img: "Select profile image"
+                },
+                buttons: {
+                    done: "Done",
+                    skip: "Skip"
+                }
+            },
+            stepThree: {
+                title: "Set up your profile fullname",
                 inputs: {
                     fullname: "Fullname",
-                    language: "Select language",
-                    img: "Select profile image"
+                },
+                buttons: {
+                    done: "Done",
+                    skip: "Skip"
+                }
+            },
+            stepFour: {
+                title: "Set up your profile language",
+                inputs: {
+                    language: "Select language"
                 },
                 buttons: {
                     done: "Done",
@@ -62,6 +80,20 @@ const lang = [
     },
     {
         lang: 'ru',
+        notification: {
+            alert: 'Уведомление',
+            successfulLogin: "Вы успешно вошли в аккаунт",
+            incorrectPassword: "Неправильный пароль",
+            userNotFound: "Пользователей с таким логином не существует",
+            missingFields: "Заполните все поля",
+            usernameAlreadyExists: "Данный логин уже занят",
+            emailAlreadyExists: "Данная почта уже занята",
+            successfulRegister: "Успешная регистрация",
+            successfulImgChange: "Аватар аккаунта был изменен успешно",
+            successfulFullnameChange: "ФИО аккаунта был изменен успешно",
+            successfulLangChange: "Язык аккаунта был изменен успешно",
+            sessionNotFound: "Произошла ошибка в ходе запроса"
+        },
         login: {
             steps: {
                 loginToAccount: "Войдите в аккаунт"
@@ -76,11 +108,6 @@ const lang = [
                     rememberMe: "Запомните меня",
                     login: "Войти",
                     dontHaveAccount: "У вас нету аккаунта?"
-                },
-                notification: {
-                    successfulLogin: "Вы успешно вошли в аккаунт",
-                    incorrectPassword: "Неправильный пароль",
-                    userNotFound: "Пользователя с таким логином не существует"
                 }
             }
         },
@@ -100,19 +127,32 @@ const lang = [
                 buttons: {
                     register: "Зарегистрироваться",
                     alreadyHaveAccount: "У вас уже есть аккаунт?"
-                },
-                notification: {
-                    usernameAlreadyExists: "Данный логин уже занят",
-                    emailAlreadyExists: "Данная почта уже занята",
-                    successfulRegister: "Успешная регистрация"
                 }
             },
             stepTwo: {
-                title: "Настройте ваш аккаунт",
+                title: "Настройте ваш аватар",
                 inputs: {
-                    fullname: "ФИО",
-                    language: "Выберите язык",
                     img: "Выберите аватарку"
+                },
+                buttons: {
+                    done: "Готово",
+                    skip: "Пропустить"
+                }
+            },
+            stepThree: {
+                title: "Настройте ваш ФИО",
+                inputs: {
+                    fullname: "ФИО"
+                },
+                buttons: {
+                    done: "Готово",
+                    skip: "Пропустить"
+                }
+            },
+            stepFour: {
+                title: "Настройте ваш язык",
+                inputs: {
+                    language: "Выберите язык"
                 },
                 buttons: {
                     done: "Готово",

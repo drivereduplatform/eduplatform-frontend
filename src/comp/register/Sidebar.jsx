@@ -2,10 +2,16 @@ function Sidebar({ step, language }) {
 
     const stepItems = [
         {
-            step: language.register.steps.registerAccount
+            step: language.register.stepOne.title
         },
         {
-            step: language.register.steps.setupAccount
+            step: language.register.stepTwo.title
+        },
+        {
+            step: language.register.stepThree.title
+        },
+        {
+            step: language.register.stepFour.title
         }
     ]
 

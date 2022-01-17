@@ -2,7 +2,9 @@ import { useState } from "react"
 import Sidebar from "../comp/register/Sidebar"
 import StepOne from "../comp/register/StepOne"
 import StepTwo from "../comp/register/StepTwo"
+import StepThree from "../comp/register/StepThree"
 import lang from "../configs/lang"
+import StepFour from "../comp/register/StepFour"
 
 function Register() {
 
@@ -18,7 +20,8 @@ function Register() {
     const language = lang[languageSelector()]
 
     const [step, setStep] = useState(1)
-    console.log(step);
+    const [cookie, setCookie] = useState('')
+    console.log(cookie);
 
     return (
         <>
@@ -26,12 +29,18 @@ function Register() {
             <main>
                 {
                     step === 1 ?
-                        <StepOne language={language} setStep={setStep} />
+                        <StepOne setCookie={setCookie} language={language} setStep={setStep} />
                         :
                         step === 2 ?
-                            <StepTwo language={language} setStep={setStep} />
+                            <StepTwo cookie={cookie} language={language} setStep={setStep} />
                             :
-                            null
+                            step === 3 ?
+                                <StepThree cookie={cookie} language={language} setStep={setStep} />
+                                :
+                                step === 4 ?
+                                    <StepFour cookie={cookie} language={language} setStep={setStep} setCookie={setCookie} />
+                                    :
+                                    null
                 }
             </main>
         </>

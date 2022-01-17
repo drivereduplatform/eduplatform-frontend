@@ -112,6 +112,19 @@ a{
     color:var(--primary-color);
 }
 
+.sub-title{
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 5px;
+    color:var(--background-color);
+}
+
+.sub-info{
+    font-size: 14px;
+    font-weight: 500;
+    color:var(--input-text-color);
+}
+
 .link{
     font-size: 14px;
     font-weight: 900;
