@@ -1,6 +1,6 @@
 import { useState } from "react"
 import Sidebar from "../comp/login/Sidebar"
-import Main from "../comp/login/Main"
+import StepOne from "../comp/login/StepOne"
 import lang from "../configs/lang"
 
 function Login() {
@@ -24,7 +24,7 @@ function Login() {
             <main>
                 {
                     step === 1 ?
-                        <Main language={language} step={setStep} />
+                        <StepOne language={language} setStep={setStep} />
                         :
                         null
                 }
