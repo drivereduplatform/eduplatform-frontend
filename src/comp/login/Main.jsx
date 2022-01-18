@@ -1,23 +1,48 @@
-import { Link } from 'react-router-dom'
-import { useState } from 'react'
-import axios from 'axios'
-import api from '../../configs/api'
+import { Link, useNavigate } from 'react-router-dom'
+import { useState, useEffect } from 'react'
+import apilib from '../../apilib'
+import { useCookies } from 'react-cookie'
 
 function Main ({ language, setSteps }) {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [checkbox, setCheckbox] = useState(false)
 
+  const navigate = useNavigate()
+  const [cookies, setCookie, removeCookie] = useCookies()
+
+  useEffect(() => {
+    // if user is already logged in, redirect to home
+    if (cookies?.sessionID) {
+      apilib.account.loginSession(cookies?.sessionID)
+        .then(response => {
+          if (response.data.success) {
+            navigate('/userpage')
+          } else {
+            removeCookie('sessionID')
+          }
+        }).catch(console.error)
+    }
+  }, [navigate, cookies, removeCookie]);
+
   function loginRequest (e) {
     e.preventDefault()
-    axios
-      .post(`${api.api_url}/login`, {
-        username: username,
-        password: password
-      })
-      .then(response => {
-        console.log(response)
-      })
+    if (username && password) {
+      apilib.account.login(username, password)
+        .then(response => {
+          if (response.data.success) {
+            const { sessionID } = response.data
+            setCookie('sessionID', sessionID, { path: '/', maxAge: 60 * 60 * 24 * 7 * 4 * 12 * 100 })
+          } else {
+            // TODO: show error
+            console.log('error')
+            console.log(response.data)
+          }
+        })
+    } else {
+      // TODO: show error
+      console.log('error')
+    }
   }
 
   return (
