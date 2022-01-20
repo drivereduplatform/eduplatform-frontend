@@ -28,6 +28,8 @@ function StepThree({ language, setStep, cookie }) {
                     setRequestResult({ message: language.notification.sessionNotFound, success: false })
                 }
             }
+        }).catch(error => {
+            setRequestResult({ message: language.notification.serverIsNotAvailable, success: false })
         })
     }
 

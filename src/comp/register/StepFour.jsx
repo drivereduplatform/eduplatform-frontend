@@ -34,6 +34,8 @@ function StepFour({ language, setStep, cookie, setCookie }) {
                     setRequestResult({ message: language.notification.sessionNotFound, success: false })
                 }
             }
+        }).catch(error => {
+            setRequestResult({ message: language.notification.serverIsNotAvailable, success: false })
         })
     }
 

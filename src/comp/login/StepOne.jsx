@@ -1,21 +1,19 @@
-import { Link } from 'react-router-dom'
-import { useState } from 'react'
-import axios from 'axios'
-import api from '../../configs/api'
 import Notification from '../Notification'
 import Cookies from 'universal-cookie';
 import { useNavigate } from 'react-router-dom'
+import { useState } from 'react';
+import axios from 'axios'
+import api from '../../configs/api';
+import { Link } from 'react-router-dom';
 
 function StepOne({ language, setStep }) {
 
     const cookies = new Cookies()
     const history = useNavigate()
 
-
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const [requestResult, setRequestResult] = useState({})
-
     function loginRequest(e) {
         e.preventDefault()
         setRequestResult({})
@@ -47,6 +45,8 @@ function StepOne({ language, setStep }) {
                     setRequestResult({ message: language.notification.incorrectPassword, success: false })
                 }
             }
+        }).catch(error => {
+            setRequestResult({ message: language.notification.serverIsNotAvailable, success: false })
         })
     }
 

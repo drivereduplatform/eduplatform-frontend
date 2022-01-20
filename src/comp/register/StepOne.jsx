@@ -41,6 +41,8 @@ function StepOne({ language, setStep, setCookie }) {
                     setRequestResult({ message: language.notification.emailAlreadyExists, success: false })
                 }
             }
+        }).catch(error => {
+            setRequestResult({ message: language.notification.serverIsNotAvailable, success: false })
         })
     }
 

@@ -1,39 +1,39 @@
 function Sidebar({ step, language }) {
-    const stepItems = [
-        {
-            step: language.login.stepOne.title
-        }
-    ]
+  const stepItems = [
+    {
+      step: language.login.stepOne.title
+    }
+  ]
 
-    return (
-        <aside>
-            <div className='aside-inner mini-inner'>
-                <div className='aside-top'>
-                    <div className='aside-logo'>
-                        <h1>-eduplatform-</h1>
-                    </div>
+  return (
+    <aside>
+      <div className='aside-inner mini-inner'>
+        <div className='aside-top'>
+          <div className='aside-logo'>
+            <h1>-eduplatform-</h1>
+          </div>
+        </div>
+        <div className='aside-bottom'>
+          <div className='aside-steps'>
+            {stepItems.map((stepItem, key) => (
+              <div key={key} className='aside-step'>
+                <div className='aside-step-left'>
+                  <div className={step === (key + 1) ? (key === stepItems.length - 1 ? 'aside-step-circle active last' : 'aside-step-circle active') : (key === stepItems.length - 1 ? 'aside-step-circle last' : 'aside-step-circle')}>
+                    <h1>{key + 1}</h1>
+                  </div>
                 </div>
-                <div className='aside-bottom'>
-                    <div className='aside-steps'>
-                        {stepItems.map((stepItem, key) => (
-                            <div key={key} className='aside-step'>
-                                <div className='aside-step-left'>
-                                <div className={step === (key + 1) ? (key === stepItems.length - 1 ? 'aside-step-circle active last' : 'aside-step-circle active') : (key === stepItems.length - 1 ? 'aside-step-circle last' : 'aside-step-circle')}>
-                                        <h1>{key + 1}</h1>
-                                    </div>
-                                </div>
-                                <div className='aside-step-right'>
-                                    <div className='aside-step-title link'>
-                                        <h1>{stepItem.step}</h1>
-                                    </div>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
+                <div className='aside-step-right'>
+                  <div className='aside-step-title link'>
+                    <h1>{stepItem.step}</h1>
+                  </div>
                 </div>
-            </div>
-        </aside>
-    )
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </aside>
+  )
 }
 
 export default Sidebar
