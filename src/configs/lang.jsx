@@ -13,7 +13,8 @@ const lang = [
             successfulImgChange: "Profile picture has been changed successfully",
             successfulFullnameChange: "Fullname has been changed successfully",
             successfulLangChange: "Language has been changed successfully",
-            sessionNotFound: "There was an error during request"
+            sessionNotFound: "There was an error during request",
+            serverIsNotAvailable: "Server is not available",
         },
         login: {
             steps: {
@@ -92,7 +93,8 @@ const lang = [
             successfulImgChange: "Аватар аккаунта был изменен успешно",
             successfulFullnameChange: "ФИО аккаунта был изменен успешно",
             successfulLangChange: "Язык аккаунта был изменен успешно",
-            sessionNotFound: "Произошла ошибка в ходе запроса"
+            sessionNotFound: "Произошла ошибка в ходе запроса",
+            serverIsNotAvailable: "Сервер недоступен",
         },
         login: {
             steps: {

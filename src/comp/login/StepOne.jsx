@@ -1,58 +1,82 @@
-import { Link } from 'react-router-dom'
-import { useState } from 'react'
-import axios from 'axios'
-import api from '../../configs/api'
 import Notification from '../Notification'
 import cookie from 'universal-cookie'
+import apilib from '../../apilib'
+import { Link } from 'react-router-dom'
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+
+function setSessionIDCookie(sessionID, cookies) {
+    cookies.set('sessionID', sessionID, {
+        path: '/',
+        maxAge: 3600 * 24 * 365 * 100
+    })
+}
 
 function StepOne({ language, setStep }) {
 
     const cookies = new cookie()
 
-    const history = useNavigate()
+    const navigate = useNavigate()
 
 
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const [checkbox, setCheckbox] = useState(false)
     const [requestResult, setRequestResult] = useState({})
+    const [notificationText, setNotificationText] = useState('')
+
+    const NOTIFICATION_TIMING = 5000
+
+    function setNotification(text) {
+        setNotificationText(text)
+        setTimeout(() => {
+            setNotificationText('')
+        }, NOTIFICATION_TIMING + 1000)
+    }
 
     function loginRequest(e) {
         e.preventDefault()
         setRequestResult({})
-        axios.post(`${api.api_url}/account/login`, {
-            username: username,
-            password: password
-        }).then(response => {
-            console.log(response);
-            if (response.data.success) {
-                if (response.data.message === 'Login successful') {
-                    setRequestResult({ message: language.notification.successfulLogin, success: true })
+        if (username && password) {
+            apilib.account.login(username, password)
+            .then(response => {
+                console.log(response);
+                if (response.data.success) {
+                    const { sessionID, message } = response.data
+                    if (message === 'Login successful') {
+                        setRequestResult({ message: language.notification.successfulLogin, success: true })
+                    }
+                    if (checkbox) {
+                        setSessionIDCookie(sessionID, cookies)
+                    }
+                    setStep(1)
+                    setUsername('')
+                    setPassword('')
+                    setCheckbox(false)
+                    navigate('/dashboard')
+                } else {
+                    if (response.data.message === 'Missing fields') {
+                        setRequestResult({ message: language.notification.missingFields, success: false })
+                        setNotification(language.notification.missingFields)
+                    }
+                    if (response.data.message === 'User not found') {
+                        setRequestResult({ message: language.notification.userNotFound, success: false })
+                        setNotification(language.notification.missingFields)
+                    }
+                    if (response.data.message === 'Incorrect password') {
+                        setRequestResult({ message: language.notification.incorrectPassword, success: false })
+                        setNotification(language.notification.missingFields)
+                    }
                 }
-                if (checkbox) {
-                    cookies.set('sessionID', response.data.sessionID, {
-                        path: '/',
-                        maxAge: 3600 * 24 * 265 * 100
-                    })
-                }
-                setStep(1)
-                setUsername('')
-                setPassword('')
-                setCheckbox(false)
-                history('/dashboard')
-            } else {
-                if (response.data.message === 'Missing fields') {
-                    setRequestResult({ message: language.notification.missingFields, success: false })
-                }
-                if (response.data.message === 'User not found') {
-                    setRequestResult({ message: language.notification.userNotFound, success: false })
-                }
-                if (response.data.message === 'Incorrect password') {
-                    setRequestResult({ message: language.notification.incorrectPassword, success: false })
-                }
-            }
-        })
+            })
+            .catch(error => {
+                console.error(error)
+                setNotification(language.notification.serverIsNotAvailable)
+            })
+        } else {
+            setRequestResult({ message: language.notification.missingFields, success: false })
+            setNotification(language.notification.missingFields)
+        }
     }
 
     console.log(requestResult);
@@ -83,7 +107,7 @@ function StepOne({ language, setStep }) {
                     </div>
                 </div >
             </section>
-            <Notification language={language} log={requestResult.message} timing={5000} />
+            <Notification language={language} log={notificationText} timing={NOTIFICATION_TIMING} />
         </>
     )
 }
