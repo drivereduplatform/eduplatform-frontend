@@ -16,9 +16,6 @@ const lang = [
             sessionNotFound: "There was an error during request"
         },
         login: {
-            steps: {
-                loginToAccount: "Login to account"
-            },
             stepOne: {
                 title: "Login to your account",
                 inputs: {
@@ -47,7 +44,7 @@ const lang = [
                 }
             },
             stepTwo: {
-                title: "Set up your profile picture",
+                title: "Choose your profile picture",
                 inputs: {
                     img: "Select profile image"
                 },
@@ -57,7 +54,7 @@ const lang = [
                 }
             },
             stepThree: {
-                title: "Set up your profile fullname",
+                title: "Set your fullname",
                 inputs: {
                     fullname: "Fullname",
                 },
@@ -67,7 +64,7 @@ const lang = [
                 }
             },
             stepFour: {
-                title: "Set up your profile language",
+                title: "Choose your profile language",
                 inputs: {
                     language: "Select language"
                 },
@@ -75,6 +72,22 @@ const lang = [
                     done: "Done",
                     skip: "Skip"
                 }
+            }
+        },
+        userDashboard: {
+            asideBar: {
+                links: {
+                    settings: "Settings",
+                    packages: "Packages",
+                    logOut: "Log out",
+                    main: "Home",
+                    lessons: "Lessons",
+                    takeTest: "Take a test",
+                    askQuestion: "Ask a question"
+                }
+            },
+            dashboard: {
+
             }
         }
     },
@@ -95,9 +108,6 @@ const lang = [
             sessionNotFound: "Произошла ошибка в ходе запроса"
         },
         login: {
-            steps: {
-                loginToAccount: "Войдите в аккаунт"
-            },
             stepOne: {
                 title: "Войдите в аккаунт",
                 inputs: {
@@ -112,10 +122,6 @@ const lang = [
             }
         },
         register: {
-            steps: {
-                registerAccount: "Зарегистрироваться",
-                setupAccount: "Настройте ваш аккаунт"
-            },
             stepOne: {
                 title: "Зарегистрироваться",
                 inputs: {
@@ -130,7 +136,7 @@ const lang = [
                 }
             },
             stepTwo: {
-                title: "Настройте ваш аватар",
+                title: "Выберите аватар",
                 inputs: {
                     img: "Выберите аватарку"
                 },
@@ -140,7 +146,7 @@ const lang = [
                 }
             },
             stepThree: {
-                title: "Настройте ваш ФИО",
+                title: "Настройте ФИО",
                 inputs: {
                     fullname: "ФИО"
                 },
@@ -150,7 +156,7 @@ const lang = [
                 }
             },
             stepFour: {
-                title: "Настройте ваш язык",
+                title: "Выберите язык",
                 inputs: {
                     language: "Выберите язык"
                 },
@@ -158,6 +164,22 @@ const lang = [
                     done: "Готово",
                     skip: "Пропустить"
                 }
+            }
+        },
+        userDashboard: {
+            asideBar: {
+                links: {
+                    settings: "Настройки",
+                    packages: "Пакеты услуг",
+                    logOut: "Выйти",
+                    main: "Главная",
+                    lessons: "Уроки",
+                    takeTest: "Пройти тест",
+                    askQuestion: "Задать вопрос"
+                }
+            },
+            dashboard: {
+                
             }
         }
     }

@@ -29,7 +29,7 @@ function Sidebar({ step, language }) {
                             stepItems.map((stepItem, key) => (
                                 <div key={key} className="aside-step">
                                     <div className="aside-step-left">
-                                        <div className={step === (key + 1) ? 'aside-step-circle active' : 'aside-step-circle'}>
+                                        <div className={step === (key + 1) ? (key === stepItems.length - 1 ? 'aside-step-circle active last' : 'aside-step-circle active') : (key === stepItems.length - 1 ? 'aside-step-circle last' : 'aside-step-circle')}>
                                             <h1>{key + 1}</h1>
                                         </div>
                                     </div>

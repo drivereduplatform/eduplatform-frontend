@@ -1,5 +1,5 @@
 aside{
-    width: 330px;
+    width: 300px;
     position: fixed;
     height: 100vh;
     left: 0;
@@ -13,7 +13,7 @@ aside{
 
 .aside-bottom{
     width: 100%;
-    margin-top: 20px;
+    margin-top: 40px;
 }
 
 .aside-steps{
@@ -40,6 +40,23 @@ aside{
     align-items: center;
     justify-content: center;
     margin-right: 25px;
+    background-color: var(--background-color);
+    position: relative;
+}
+
+.aside-step-circle::before{
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -30px;
+    height: 30px;
+    width: 1px;
+    background-color: var(--input-text-color);
+}
+
+.aside-step-circle.last::before{
+    display: none;
 }
 
 .aside-step-circle.active{
@@ -53,7 +70,7 @@ aside{
 }
 
 main{
-    margin-left: 330px;
+    margin-left: 300px;
 }
 
 .login-form,
@@ -118,4 +135,62 @@ main{
 
 .notification-inner{
     padding: 20px;
+}
+
+.aside-account{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.aside-account-left{
+    display: flex;
+    align-items: center;
+}
+
+.aside-account-img{
+    width: 45px;
+    height: 45px;
+    margin-right: 25px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.aside-account-button{
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.aside-account-button.active{
+    transform: rotate(180deg);
+}
+
+.aside-account-details-link.link p{
+    color: var(--active-link-color);
+    margin-bottom: 15px;
+}
+
+.aside-account-details{
+    padding: 0 20px;
+}
+
+.aside-account-title{
+   word-break: break-all;
+}
+
+.aside-links{
+    margin-top: 30px;
+}
+
+.aside-link{
+    display: flex;
+    align-items: center;
+    margin-bottom: 35px;
+}
+
+.aside-link img{
+    margin-right: 20px;
+    width: 20px;
+    height: 20px;
 }

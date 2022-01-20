@@ -3,19 +3,17 @@ import { useState } from 'react'
 import axios from 'axios'
 import api from '../../configs/api'
 import Notification from '../Notification'
-import cookie from 'universal-cookie'
+import Cookies from 'universal-cookie';
 import { useNavigate } from 'react-router-dom'
 
 function StepOne({ language, setStep }) {
 
-    const cookies = new cookie()
-
+    const cookies = new Cookies()
     const history = useNavigate()
 
 
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
-    const [checkbox, setCheckbox] = useState(false)
     const [requestResult, setRequestResult] = useState({})
 
     function loginRequest(e) {
@@ -30,17 +28,14 @@ function StepOne({ language, setStep }) {
                 if (response.data.message === 'Login successful') {
                     setRequestResult({ message: language.notification.successfulLogin, success: true })
                 }
-                if (checkbox) {
-                    cookies.set('sessionID', response.data.sessionID, {
-                        path: '/',
-                        maxAge: 3600 * 24 * 265 * 100
-                    })
-                }
+                cookies.set('sessionID', response.data.sessionID, {
+                    path: '/',
+                    maxAge: 3600 * 24 * 265 * 100
+                })
                 setStep(1)
                 setUsername('')
                 setPassword('')
-                setCheckbox(false)
-                history('/dashboard')
+                history('/')
             } else {
                 if (response.data.message === 'Missing fields') {
                     setRequestResult({ message: language.notification.missingFields, success: false })
@@ -71,9 +66,6 @@ function StepOne({ language, setStep }) {
                             </div>
                             <div className="login-form-input">
                                 <input value={password} onChange={(e) => setPassword(e.target.value)} placeholder={language.login.stepOne.inputs.password} type="password" />
-                            </div>
-                            <div className="login-form-checkbox note">
-                                <input onChange={() => setCheckbox(!checkbox)} type="checkbox" /> <div className="login-form-checkbox-indicator"></div><p>{language.login.stepOne.buttons.rememberMe}</p>
                             </div>
                             <button onClick={(e) => loginRequest(e)} className="login-form-button">{language.login.stepOne.buttons.login}</button>
                             <Link to="/register" className="login-form-note note">

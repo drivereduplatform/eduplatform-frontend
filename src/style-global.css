@@ -5,7 +5,7 @@
     --input-color: #e4e4e4;
     --input-text-color: #7D7D7D;
     --active-link-color: #A6A6A6;
-    --primary-color: #292929;
+    --primary-color: #303030;
     --progress-bar-green-color: #219653;
     --progress-bar-yellow-color: #E3CE5D;
     --progress-bar-red-color: #E3655D;
@@ -126,10 +126,11 @@ a{
 }
 
 .link{
-    font-size: 14px;
-    font-weight: 900;
+    font-size: 15px;
+    font-weight: 700;
     color:var(--primary-color);
     line-height: 20px;
+    cursor: pointer;
 }
 
 .link.active{
