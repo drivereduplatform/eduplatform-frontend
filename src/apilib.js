@@ -5,13 +5,13 @@ var toexport = {
   // TODO: write all functions for all kinds of api calls
   account: {
     login: (username, password) => {
-      return axios.post(`${api.api_url}/login`, {
+      return axios.post(`${api.api_url}/account/login`, {
         username: username,
         password: password 
       })
     },
     register: (username, password, email, session) => {
-      return axios.post(`${api.api_url}/register`, {
+      return axios.post(`${api.api_url}/account/register`, {
         username: username,
         password: password,
         email: email,
@@ -19,12 +19,12 @@ var toexport = {
       })
     },
     logout: (session) => {
-      return axios.post(`${api.api_url}/logout`, {
+      return axios.post(`${api.api_url}/account/logout`, {
         session: session
       })
     },
     loginSession: (session) => {
-      return axios.post(`${api.api_url}/login-session`, {
+      return axios.post(`${api.api_url}/account/login-session`, {
         session: session
       })
     },
