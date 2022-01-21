@@ -142,7 +142,6 @@ a{
     font-weight: 700;
     line-height: 40px;
     color:var(--primary-color);
-    cursor: pointer;
 }
 
 input[type="text"],
