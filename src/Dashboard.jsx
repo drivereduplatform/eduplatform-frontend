@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom"
 import Cookies from 'universal-cookie';
 import api from "./configs/api";
 import axios from 'axios'
-import { Routes, Route } from "react-router-dom";
+// import { Routes, Route } from "react-router-dom";
 import UserDashboardAside from "./comp/UserDashboardAside";
 import lang from "./configs/lang";
 
@@ -13,7 +13,7 @@ function Dashboard() {
     const [language, setLanguage] = useState({})
     const [userDataLoading, setUserDataLoading] = useState(false)
     const cookies = new Cookies();
-    const history = useNavigate()
+    const navigate = useNavigate()
     const [userData, setUserData] = useState({})
     const cookiesGet = cookies.get('sessionID')
 
@@ -34,13 +34,13 @@ function Dashboard() {
                     setUserData(response.data.message)
                     setUserDataLoading(true)
                 } else {
-                    history('/login')
+                    navigate('/login')
                 }
             })
         } else {
-            history('/login')
+            navigate('/login')
         }
-    }, [history, cookiesGet, userData.lang])
+    }, [navigate, cookiesGet, userData.lang])
     return (
         userData.role === 'user' ?
             (
