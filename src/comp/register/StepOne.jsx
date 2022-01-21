@@ -68,9 +68,11 @@ function StepOne({ language, setStep, setCookie }) {
                                 <input value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} placeholder={language.register.stepOne.inputs.confirmPassword} type="password" />
                             </div>
                             <button onClick={(e) => registerRequest(e)} className="register-form-button">{language.register.stepOne.buttons.register}</button>
-                            <Link to="/login" className="register-form-note note">
-                                <p>{language.register.stepOne.buttons.alreadyHaveAccount}</p>
-                            </Link>
+                            <div className="login-form-note">
+                                <Link to="/login" className="note">
+                                    <p>{language.register.stepOne.buttons.alreadyHaveAccount}</p>
+                                </Link>
+                            </div>
                         </form>
                     </div>
                 </div>
